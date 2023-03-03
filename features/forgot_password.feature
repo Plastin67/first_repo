@@ -1,10 +1,21 @@
 Feature: Jules forgot password tests
-  # se ruleaza inaintea fiecarui test
-Background:
-  Given sign_in: I am an user on Jules sign in page
+
+  Background:
+    Given sign in: I am a user on jules sign in page
 
   @tinta
-  Scenario: Wrong email validation message
-    When sign_in: I click the forgot password link
-    When forgot_pwd: I set my email to "Margelatu"
-    Then forgot_pwd: I verify that the email validation is correct
+    Scenario: wrong email validation message
+    When sign in: I click the forgot password link
+    When forgot password: I set my email to "abc"
+    Then forgot password: I verify that email validation message is correct
+
+  @tinta
+    Scenario Outline: wrong email validation message with table data
+    When sign in: I click the forgot password link
+    When forgot password: I set my email to "<email_address>"
+    Then forgot password: I verify that email validation message is correct
+
+    Examples:
+      | email_address |
+      | abcde.com     |
+      | abc           |

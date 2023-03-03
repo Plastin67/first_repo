@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
-from pages.base_page import Basepage
+from pages.base_page import BasePage
 from time import sleep
 
 
-class Forgot_Pwd_Page(Basepage):
+class Forgot_Pwd_Page(BasePage):
     EMAIL_INPUT = (By.XPATH, f'//input[@placeholder="Enter your email"]')
     INVALID_EMAIL_MESSAGE = (By.XPATH, f'//p[contains(text(), "Please enter a valid email address!")]')
     SEND_EMAIL_BUTTON = (By.XPATH, '//*[@id="root"]/div/div[2]/div/div[2]/button')
